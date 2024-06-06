@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?PowerDesigner signature="Workspace" version="15.3.0.3248"?>
+<!-- Veuillez ne pas modifier ce fichier -->
+
+<Workspace>
+	<Local Expanded="Yes">
+		<Model Expanded="Yes" ID="{ADA33E77-7A98-4D11-B021-35F835F791CE}" Name="Sae bdd" Type="{1E597170-9350-11D1-AB3C-0020AF71E433}" URL="Sae bdd.mcd"/>
+		<Model Expanded="Yes" ID="{BE8B6AD3-B6AC-4ADA-BFA6-29BA7FB0AE3F}" Name="Sae bdd" Selected="Yes" Type="{CDE44E21-9669-11D1-9914-006097355D9B}" URL="Sae bdd.mpd"/>
+	</Local>
+	<BrowserModule Name="Référentiel"/>
+</Workspace>

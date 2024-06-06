@@ -1,0 +1,4 @@
+Pour utiliser le script:
+
+pip install requests
+pip install mysql.connector

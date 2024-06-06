@@ -1,0 +1,1597 @@
+/* Style de la redirection dans la même page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset des marges et des rembourrages pour une mise en page cohérente */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Style pour la scroll bar*/
+
+/*Style pour Firefox*/
+* {
+  scrollbar-color: #ccc #333;
+}
+
+/*Style pour Google Chrome et autres navigateurs*/
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #d1d1d166;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #333;
+}
+
+/* Style de base pour le corps de la page */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  margin: 0;
+}
+
+main {
+  min-height: calc(100vh - 291px);
+}
+
+/* En-tête */
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 91px;
+}
+
+.titre-container {
+  align-items: center;
+}
+
+.titre-container h1 {
+  animation: slideAnimationIn 1s;
+  cursor: default;
+}
+
+.utilisateur-categorie {
+  padding-top: 5px;
+}
+
+.utilisateur {
+  width: 32px;
+  height: 32px;
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: default;
+  transition: transform 0.4s ease-in;
+}
+
+.nomUtilisateur {
+  transition: transform 0.4s ease-in;
+  position: absolute;
+  right: 60px;
+  top: 33px;
+}
+
+.logoutBouton {
+  position: absolute;
+  right: 10px;
+  top: 34px;
+  color: white;
+  background: none;
+  border: none;
+  padding: 3px 3px;
+  cursor: pointer;
+  opacity: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.utilisateur-categorie:hover > .utilisateur {
+  transform: translateX(-110px);
+}
+
+.utilisateur-categorie:hover .nomUtilisateur {
+  transform: translateX(-110px);
+}
+
+.utilisateur-categorie:hover > form .logoutBouton {
+  opacity: 1;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.3s ease-in;
+}
+
+.menu-icon:hover {
+  transform: translateY(-5px);
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu ul li {
+  border-right: 1px solid grey;
+  padding: 0px 10px 0px 10px;
+}
+
+.menu ul li:last-child {
+  border-right: none;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  /*color: #333;*/
+}
+
+.invisible {
+  display: none;
+}
+
+.visible {
+  display: inline-block;
+}
+
+.slide-in {
+  animation: slideAnimationIn 0.5s;
+}
+
+.slide-out {
+  animation: slideAnimationOut 0.5s;
+}
+
+/* Animation pour le défilement de gauche à droite */
+@keyframes slideAnimationIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideAnimationOut {
+  from {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(-10);
+  }
+}
+
+/* Style pour la section principale */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+}
+
+/* Style pour le bloc de connexion */
+.form {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.form input[type="text"],
+.form input[type="password"] {
+  width: calc(100% - 12px);
+  padding: 8px;
+  margin-bottom: 15px;
+}
+
+.connexion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+}
+
+/*
+.connexion > div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: 300px;
+}
+*/
+.connexion > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  height: calc(400px - 10vw);
+}
+
+/* Animation pour l'input de mot de passe en cas de mot de passe incorrect */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px);
+  }
+
+  50% {
+    transform: translateX(5px);
+  }
+
+  75% {
+    transform: translateX(-3px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake-password {
+  animation: shake 0.4s ease-in-out;
+  border: 2px solid red;
+  border-radius: 3px;
+}
+
+.form button {
+  padding: 10px 15px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+/* Style pour le bloc d'informations */
+.infos {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.infos h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.infos p {
+  color: #666;
+}
+
+.infos-contenu {
+  padding-left: 20px;
+  line-height: 1.9;
+}
+
+/* Style de la page Emploi du temps */
+
+.mainEDT {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+}
+
+.mainEDT form {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+}
+
+.mainEDT form,
+.mainEDT .EDT {
+  width: 100%;
+}
+
+.mainEDT .infosCours {
+  width: 30%;
+}
+
+.mainEDT .infosCours table {
+  width: 100%;
+  height: 100%;
+}
+
+.mainEDT .infosCours table {
+  border-collapse: collapse;
+}
+
+.mainEDT .infosCours table tr td,
+.mainEDT .infosCours table tr th {
+  border: 2px solid black;
+  border-left: 0;
+}
+
+.mainEDT .infosCours table tr td {
+  width: 70%;
+  padding: 10px;
+}
+
+.mainEDT table tr .zoneBoutonActionEDT {
+  height: 70px;
+}
+
+.mainEDT table button {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+}
+
+.mainEDT table button:enabled {
+  cursor: pointer;
+}
+
+.mainEDT table button:enabled:hover {
+  background-color: #ccc;
+}
+
+.mainEDT table button:disabled {
+  background-color: rgb(230, 230, 230);
+  cursor: not-allowed;
+}
+
+.mainEDT .navigation-professeur {
+  border: 2px solid black;
+  border-bottom: 0;
+  padding: 20px;
+}
+
+.edtJour {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  border: 1px solid black;
+  text-align: center;
+  width: 100%;
+}
+
+.edtSemaine {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 2fr 2fr 2fr;
+  text-align: center;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.edtSemaine .colonneHeures,
+.edtSemaine .ligneJours,
+.edtJour .colonneHeures {
+  border: 1px solid black;
+}
+
+.edtSemaine > div {
+  min-height: 10px;
+}
+
+.edtJour > div {
+  min-height: 10px;
+}
+
+.edtSemaine .cours,
+.edtJour .cours {
+  border: 1px solid black;
+  font-size: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* Pour permettre de sélectionner dans toute la case */
+}
+
+.cours input {
+  display: none;
+}
+
+.selectionCours + .coursselection {
+  /* Sélectionner dans toute la case */
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 3px solid transparent;
+}
+
+.selectionCours:hover + .coursselection {
+  border: 3px solid rgb(200, 200, 200);
+}
+
+.selectionCours:checked + .coursselection {
+  border: 3px solid rgb(150, 150, 150);
+}
+
+.coursselection .detailsCoursCache {
+  display: none;
+}
+
+.edtSemaine .trouQuartHeure,
+.edtJour .trouQuartHeure {
+  border: 1px solid #ccc;
+}
+
+.edtSemaine .trouHeure,
+.edtJour .trouHeure {
+  border: 1px solid #555;
+}
+
+.edtSemaine h1:nth-child(1) {
+  grid-row: 0;
+  grid-column: 2;
+}
+
+#form-choix {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+#selectProfesseur {
+  margin-right: 10px;
+}
+
+/* Style de la page d'accueil */
+
+.column {
+  width: 30%;
+  height: 530px;
+  float: left;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  max-height: calc(100vh - 50px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.column::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 5px;
+}
+
+.column::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 5px;
+}
+
+.column::-webkit-scrollbar {
+  width: 10px;
+}
+
+.column:first-child {
+  overflow-y: auto;
+}
+
+.column > h2 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+li > #calendrier,
+li > #retard {
+  padding-right: 10px;
+  padding-top: 3px;
+  /*margin: 5px 5px 5px 5px;*/
+}
+
+li > #avertissement,
+li > #convocation {
+  padding-right: 10px;
+  padding-top: 15px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.navigation a {
+  font-size: 24px;
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.navigation a:hover {
+  color: #007bff;
+}
+
+.date-navigation,
+.semaine-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.arrow {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/*Style pour le footer de la page*/
+.footer {
+  background-color: #333;
+  padding: 20px 0;
+  height: 200px;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-colones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.footer-colonne {
+  flex: 1;
+  margin: 0 10px;
+  padding: 10px;
+  max-width: 250px;
+}
+
+.footer-colonne h4 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.footer-colonne ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.footer-colonne ul li {
+  margin: 5px;
+}
+
+.footer-colonne a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #aaa;
+}
+
+.footer-colonne p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+/* CSS */
+/*.column {
+    display: flex;
+}*/
+
+.date-navigation button {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/*.time-column {
+    width: 60px;
+}
+
+.hour, .half-hour {
+    text-align: right;
+    font-size: 12px;
+    line-height: 24px;
+    height: 24px;
+    border-bottom: 1px solid #ccc;
+}
+
+.schedule {
+    flex: 1;
+    margin-left: 20px;
+    position: relative;
+}
+
+.course {
+    background-color: #e6e6e6;
+    padding: 5px;
+    border: 1px solid #ccc;
+    position: absolute;
+    width: calc(100% - 12px);
+    overflow: hidden;
+}*/
+
+.column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.column li {
+  display: flex;
+  border: 1px solid black;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.column li .buttonAccueil {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 13px;
+  width: 100%;
+  font-size: 15px;
+  transition: all 0.5s;
+  text-align: left;
+}
+
+.column li .buttonAccueil:hover {
+  background-color: rgb(230, 230, 230);
+  border: none;
+  cursor: pointer;
+  padding: 13px;
+  font-size: 15px;
+  transition: all 0.5s;
+  border-radius: 5px;
+}
+
+.column li .buttonAccueil:focus {
+  background-color: rgb(200, 200, 200);
+  border: none;
+  cursor: pointer;
+  padding: 13px;
+  font-size: 15px;
+  transition: all 0.5s;
+}
+
+.columnliVide {
+  padding: 10px;
+}
+
+strong.exam {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+span.note {
+  display: inline-block;
+  border: 1px solid;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-style: italic;
+  /*color: #555;*/
+  border-radius: 5px;
+  margin-left: auto;
+  /* Aligner la note à droite */
+}
+
+/* CSS */
+.notes-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.notes-list li {
+  margin-bottom: 8px;
+}
+
+.note-box {
+  display: inline-block;
+  border: 1px solid;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/*Style pour la page notes*/
+
+.title_notes {
+  text-align: center;
+}
+.notes-page {
+  width: 100%;
+  display: inline-block;
+}
+
+.select-semestre {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.select-semestre h3:hover {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.select-semestre h3 {
+  margin: 0;
+  border-right: 1px solid black;
+  flex: 1;
+  text-align: center;
+}
+
+.select-semestre h3:last-child {
+  border-right: none;
+}
+
+.notes-container {
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.fleche {
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.fleche.bas {
+  border-top: 10px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid;
+}
+
+.fleche.droite {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid;
+}
+
+.competences {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.competences h2,
+button {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.contenu-matiere h2,
+button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.contenu-competence,
+.contenu-matiere {
+  display: none;
+}
+
+.contenu-competence.active,
+.contenu-matiere.active {
+  display: block;
+  animation: slideAnimationDown 0.5s;
+}
+
+@keyframes slideAnimationDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contenuRedirige {
+  animation-name: administratifSelectionne;
+  animation-duration: 1s;
+  animation-iteration-count: 3;
+  border: none;
+  border-radius: 0.3em;
+}
+
+@keyframes administratifSelectionne {
+  0% {
+    background-color: transparent;
+  }
+
+  70% {
+    background-color: rgba(0, 110, 255, 0.3);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.nonLu {
+  animation-name: nonLu;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes nonLu {
+  0% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(0, 110, 255, 0.3);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.matiere {
+  cursor: default;
+  padding: 1em;
+  margin-block: 1em;
+  border: 2px solid #aaa;
+  border-radius: 1em;
+}
+
+.matiere li {
+  list-style-type: disc;
+  margin-left: 2em;
+}
+
+.matiere table {
+  width: 100%;
+  border: none;
+  margin: 1px auto;
+  border-spacing: 0.5em;
+  table-layout: fixed;
+}
+
+.matiere td {
+  border: 1px solid #333;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  text-align: center;
+}
+
+/* Style administratif */
+
+.administratif-page {
+  width: 100%;
+  display: inline-block;
+}
+
+.menus {
+  padding: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.absence h2,
+.retard h2,
+.avertissement h2,
+.convocation h2,
+button {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.contenu-absence,
+.contenu-retard,
+.contenu-avertissement,
+.contenu-convocation {
+  display: none;
+}
+
+.contenu-absence.active,
+.contenu-retard.active,
+.contenu-avertissement.active,
+.contenu-convocation.active {
+  display: block;
+  animation: slideAnimationDown 0.5s;
+}
+
+.absence,
+.retard,
+.avertissement,
+.convocation {
+  cursor: default;
+  padding: 1em;
+  margin-block: 1em;
+  border: 2px solid #aaa;
+  border-radius: 1em;
+}
+
+.absence li,
+.retard li,
+.avertissement li,
+.convocation li {
+  list-style-type: disc;
+  margin-left: 2em;
+}
+
+.absence table,
+.retard table,
+.avertissement table,
+.convocation table {
+  width: 100%;
+  border: none;
+  margin: 1px auto;
+  border-spacing: 0.5em;
+  table-layout: fixed;
+}
+
+.absence td,
+.retard td,
+.avertissement td,
+.convocation td {
+  border: 1px solid #333;
+  border-radius: 0.3em;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.absence td > #justification {
+  padding-right: 10px;
+}
+
+.zoneMarquerCommeLu, .zoneDejaLu{
+  border: none !important;
+  background: none !important;
+}
+
+.zoneMarquerCommeLu button{
+  width: 100%;
+  height:45px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.zoneMarquerCommeLu button:hover {
+  background-color: #555;
+}
+
+.zoneDejaLu button{
+  width: 100%;
+  height:45px;
+  background-color: #777;
+  color: #aaa;
+  cursor: default;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.zoneDejaLu button:hover {
+  background-color: #777;
+}
+
+/* Style pour la page appel */
+#appel {
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+}
+
+#appel > h2 {
+  margin-top: 5px;
+  margin-bottom: 20px;
+  /* Espacement entre le titre et le formulaire */
+  text-align: center;
+}
+
+.form-appel {
+  text-align: center;
+}
+
+.tab-appel {
+  width: 100%;
+}
+
+.tab-appel th {
+  border: 1px solid black;
+  padding: 8px;
+  word-wrap: break-word;
+  /* Permet au texte de revenir à la ligne si nécessaire */
+}
+
+.tab-appel table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.tab-appel td {
+  padding: 8px;
+  text-align: center;
+  border-right: 1px solid black;
+  word-wrap: break-word;
+  /* Permet au texte de revenir à la ligne si nécessaire */
+}
+
+.submit-appel {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  /* Ajoute une transition pour une animation au survol */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.submit-appel:hover {
+  background-color: #0056b3;
+  /* Couleur différente au survol */
+}
+
+/*CSS pour la page listeNotesProf*/
+
+.listeEvalsProf-container {
+  cursor: default;
+  padding: 1em;
+  margin-block: 1em;
+  border: 2px solid #aaa;
+  border-radius: 1em;
+}
+
+.listeEvalsProf-container table {
+  width: 100%;
+  border: none;
+  margin: 1px auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.listeEvalsProf-container th,
+.listeEvalsProf-container td {
+  border: 1px solid #333;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  padding: 0.5em;
+  text-align: center;
+}
+
+.listeEvalsProf-container th:first-child,
+.listeEvalsProf-container td:first-child {
+  border-left: 1px solid transparent;
+}
+
+.listeEvalsProf-container th:last-child,
+.listeEvalsProf-container td:last-child {
+  border-right: 1px solid transparent;
+  border-left: 1px solid transparent;
+}
+
+.listeEvalsProf-container tbody tr.ligneSelectionne {
+  background-color: #c1c1c1;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pop-up {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.pop-up-content {
+  background-color: #f9f9f9;
+  margin: 2% auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 70%;
+  /* Plus large */
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.pop-up-content input[type="date"],
+.pop-up-content input[type="text"],
+.pop-up-content input[type="time"],
+.pop-up-content select {
+  width: calc(100% - 35px);
+  padding: 10px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.pop-up-content button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+  padding: 12px 16px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.pop-up-content button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+.fermer-pop-up {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fermer-pop-up:hover,
+.fermer-pop-up:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ajoutEval {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ajoutEval:hover {
+  background-color: #ccc;
+}
+
+/* Style page liste élèves */
+#liste_elèves {
+  display: inline-block;
+  width: 100%;
+}
+
+.barre_recherche_eleves {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.barre_recherche_eleves input[type="search"],
+.barre_recherche_eleves button {
+  padding: 10px;
+  width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-left: 15px;
+}
+
+.barre_recherche_eleves button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 100px;
+}
+
+.liste_eleves {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid #aaa;
+  border-radius: 5px;
+}
+.liste_eleves tbody tr.ligneSelectionne {
+  background-color: #c1c1c1;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.liste_eleves th,
+.liste_eleves td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+.liste_eleves th {
+  background-color: #f2f2f2;
+}
+
+#commentaire-label {
+  text-align: center;
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Style pour la page modifNote */
+.conteneurModifEval {
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  height: 70vh;
+}
+
+.detailsEval {
+  flex: 0 0 30%;
+}
+
+.detailsEval form {
+  padding-top: 20px;
+  flex: 0 0 100%;
+}
+
+.noteParEleve {
+  flex: 1;
+  border-left: 30px solid #ccc;
+  margin-left: 10px;
+  padding-left: 10px;
+  overflow-y: auto;
+  max-height: 80vh;
+}
+
+.detailsEval table,
+.noteParEleve table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.detailsEval th,
+.detailsEval td,
+.noteParEleve th,
+.noteParEleve td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  cursor: default;
+}
+
+.back {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+.back:hover {
+  background-color: #555;
+}
+
+.detailsEval td span {
+  display: flex;
+  align-items: center;
+}
+
+.detailsEval td span input {
+  margin-left: 5px;
+}
+
+.detailsEval button,
+.noteParEleve button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.detailsEval button:disabled,
+.noteParEleve button:disabled {
+  background-color: #ccc;
+  color: black;
+  cursor: not-allowed;
+}
+
+.detailsEval input,
+.noteParEleve input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid #ccc;
+  cursor: text;
+}
+
+/* Style pour la page gere admin */
+#gerer_admin {
+  margin-top: 20px;
+}
+
+#detail {
+  color: #333;
+  font-size: 24px;
+}
+
+#infos-eleve,
+#infos-absence,
+#infos-retard,
+#infos-avertissement,
+#infos-convocation {
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+}
+
+#form-just {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+#form-suppr {
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+#justif {
+  text-decoration: underline;
+  color: black;
+}
+
+#justif:hover {
+  color: #007bff;
+}
+
+#valider {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#valider:hover {
+  background-color: #45a049;
+}
+
+#refuser {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+#refuser:hover {
+  background-color: orangered;
+}
+
+#suppr,
+.export {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+#suppr:hover,
+.export:hover {
+  background-color: #007bff;
+}
+
+@media screen and (max-width: 1000px) {
+  /* Style pour la section principale */
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+  }
+
+  .form,
+  .infos {
+    width: 100%;
+  }
+
+  /* Style de la page Emploi du temps */
+  .mainEDT form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+
+  .mainEDT .infosCours {
+    width: 100%;
+  }
+
+  .mainEDT .infosCours table tr td,
+  .mainEDT .infosCours table tr th {
+    border: 2px solid black;
+    border-top: 0;
+  }
+
+  .mainEDT .infosCours table tr td {
+    width: 75%;
+    padding: 10px;
+  }
+
+  .mainEDT .infosCours table tr th {
+    padding: 10px;
+  }
+
+  .mainEDT .infosCours table tr th:last-child {
+    padding: 0px;
+  }
+
+  /* Style de la page d'accueil */
+  .column {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  /*Style pour la page notes*/
+
+  .matiere table {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .matiere table thead,
+  .matiere table thead tr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .matiere table tbody,
+  .matiere table tbody tr {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .matiere table th {
+    padding: 0.5em;
+    min-height: 43px;
+  }
+
+  .matiere table tbody {
+    width: 100%;
+  }
+
+  .matiere table td {
+    padding: 0.5em;
+    min-height: 43px;
+    width: 100%;
+  }
+
+  /* Style pour la page Administratif */
+
+  /* Style pour le bloc de connexion */
+  .connexion {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .connexion > div {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  /*Style pour le footer de la page*/
+  .footer {
+    height: auto;
+  }
+
+  .container {
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .footer-colones {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-colonne {
+    max-width: none;
+  }
+
+  .date-navigation button {
+    font-size: 16px;
+    margin-right: 10px;
+  }
+}
